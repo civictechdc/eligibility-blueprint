@@ -1,0 +1,36 @@
+.pending {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pending-spinner {
+  height: 50px;
+  width: 50px;
+  margin: 50px auto;
+  border-radius: 50%;
+  background-color: red;
+  animation: login-spinner 1s infinite;
+}
+
+@keyframes login-spinner {
+  0%, 100% {
+    transform: scale(1);
+    background-color: red;
+  }
+
+  50% {
+    transform: scale(0.8);
+    background-color: orange;
+  }
+}
+
+.login-logo {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  align-self: center;
+}

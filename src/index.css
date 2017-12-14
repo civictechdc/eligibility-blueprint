@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root, [data-reactroot] {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif !important;
+  color: #444 !important;
+}
+
+.navbar-container {
+  border-top: 11px solid #2B4888;
+  box-shadow: 0px 0px 10px #ccc;
+}
+
+.dcgov_logo {
+  max-height: 2em;
+  margin-right: 0.5em;
+}
+
+.dark-blue {
+  color: #2B4888 !important;
+}
