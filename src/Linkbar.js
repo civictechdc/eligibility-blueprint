@@ -15,8 +15,9 @@ import {
     Row
 } from 'reactstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import {setLanguage} from 'translation';
-import translation from 'translation';
+
+import {setLanguage} from './translation';
+import translation from './translation';
 import imgLogo from './images/dcgov_logo.jpg';
 
 export default class Linkbar extends Component{

@@ -15,8 +15,8 @@ import {
     push
 } from 'react-router-redux';
 import { connect } from "react-redux";
-import * as AnswerActions from 'actions/answers'
-import translation from 'translation';
+import * as AnswerActions from '../actions/answers'
+import translation from '../translation';
 
 
 export class Question extends React.Component {

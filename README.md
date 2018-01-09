@@ -5,6 +5,7 @@ A blueprint application for bootstrapping a webform which asks users to answer a
 ## Getting started 
 
 * install node.js
+* Install [nvm](https://github.com/creationix/nvm#install-script)
 
 ```
 # Clone this repository
@@ -12,6 +13,9 @@ $ git clone git@github.com:codefordc/eligibility-blueprint.git
 
 # Go into the repository
 $ cd eligibility-blueprint 
+
+# Use the right version of node
+$ nvm install
 
 # Install dependencies
 $ yarn install

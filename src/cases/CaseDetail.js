@@ -6,7 +6,7 @@ import {
     Col,
     Button
 } from 'reactstrap';
-import translation from 'translation';
+import translation from '../translation';
 import { push } from 'react-router-redux';
 
 const CaseDetail = ({ selectedCase, person, handleBackToResults, handleSeeFlags }) => {
