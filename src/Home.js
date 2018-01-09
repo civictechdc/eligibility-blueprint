@@ -8,11 +8,12 @@ import {
     Redirect
 } from 'react-router';
 import {connect} from 'react-redux';
-import Question from 'components/Question';
+
 import {
     loadFirstQuestion
-} from 'actions/answers';
-import translation from 'translation'
+} from './actions/answers';
+import Question from './components/Question';
+import translation from './translation'
 import {
     CaseCard
 } from './cases/components'

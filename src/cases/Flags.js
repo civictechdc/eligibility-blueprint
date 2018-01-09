@@ -8,7 +8,7 @@ import {
     Button
 } from 'reactstrap';
 import { push } from 'react-router-redux';
-import translation from 'translation';
+import translation from '../translation';
 
 
 const Flags = ({flags, handleGoToQuestions, handleBackToCase}) => {

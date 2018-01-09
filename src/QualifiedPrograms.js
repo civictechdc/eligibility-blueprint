@@ -23,8 +23,8 @@ import {
 import {
     calculateProgramsEligibility,
     startOverForEligibility
-} from 'actions/eligibilityActions';
-import translation from 'translation';
+} from './actions/eligibilityActions';
+import translation from './translation';
 import {
     CaseCard
 } from './cases/components'

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import translation from 'translation';
 import { connect } from 'react-redux';
 import {
   Container,
@@ -12,7 +11,9 @@ import {
   Input,
   Button
 } from 'reactstrap';
+
 import './Login.css';
+import translation from './translation';
 import * as actions from './actions/authActions';
 import imgLogo from './images/cfsa-logo.jpg';
 

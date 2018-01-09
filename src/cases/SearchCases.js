@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import translation from 'translation'
 import {
     Row,
     Col,
@@ -16,6 +15,8 @@ import {
     searchCases
 } from './actions';
 import { push } from 'react-router-redux';
+
+import translation from '../translation';
 
 const validate = values => {
   const errors = {}

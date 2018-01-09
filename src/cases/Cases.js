@@ -5,7 +5,7 @@ import {
     Col, 
     Button
 } from 'reactstrap';
-import translation from 'translation';
+import translation from '../translation';
 import {
     CaseCard
 } from './components';
