@@ -59,14 +59,14 @@ const App = () => {
             <Col xs={0} md={3} />
             <Col xs={12} md={6}>
               <Switch>
-                <PrivateRoute exact path="/" component={SearchCases}/>
+                <PrivateRoute exact path="/" component={Home}/>
                 <PrivateRoute exact path="/cases" component={Cases}></PrivateRoute>
                 <PrivateRoute exact path="/cases/:selectedCase" component={CaseDetail}></PrivateRoute>
                 <PrivateRoute exact path="/flags/:selectedCase" component={Flags}></PrivateRoute>
                 <Route path="/login" component={Login}/>
                 <Route path="/about" component={About} />
                 <Route path="/contact" component={Contact} />
-                <PrivateRoute path="/questions/:selectedCase/:question" component={Home}></PrivateRoute>
+                <Route path="/questions/:question" component={Home}></Route>
                 <PrivateRoute path="/qualifiedprograms/:selectedCase" component={QualifiedPrograms} />
                 <Redirect to="/" />
               </Switch>

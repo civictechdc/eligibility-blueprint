@@ -27,7 +27,7 @@ export class Home extends Component {
     render() {
         const { currentQuestion } = this.props;
         if(this.props.done) {
-            return <Redirect to={`/qualifiedPrograms/${this.props.selectedCase.id}`}/>
+            return <Redirect to={`/qualifiedPrograms`}/>
         }
 
         if(currentQuestion == null) {
@@ -36,11 +36,6 @@ export class Home extends Component {
 
         return (
             <Container>
-                <Row>
-                    <Col className="mt-2">
-                       <CaseCard {...this.props.person} {...this.props.selectedCase} ></CaseCard>
-                    </Col>
-                </Row>
                 <Row>
                     <Col>
                         <Question current={currentQuestion}/>
@@ -64,7 +59,6 @@ const mapStateToProps = (state) => {
         previousQuestions: state.answers.previous,
         futureQuestions: state.answers.future,
         done: state.answers.done,
-        selectedCase: personAndCases.cases.find((c) => c.id === state.cases.ui.selectedCase),
         person: personAndCases
     }
 }
