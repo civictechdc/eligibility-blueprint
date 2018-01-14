@@ -140,9 +140,7 @@
             "question": "CASE_STATUS",
             "category": "collaborative",
             "answerType": "categorical",
-            "answer": {
-                "options": ["FRONT_YARD", "FRONT_PORCH", "FRONT_DOOR", "OTHER"]
-            },
+            "answerOptions": ["FRONT_YARD", "FRONT_PORCH", "FRONT_DOOR", "OTHER"],
             "continueRules": {
             },
             "start": false

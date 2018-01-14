@@ -48,7 +48,6 @@ export class Home extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     const personAndCases = state.cases.data.find((person) => {
         return person.cases.find((c) => {
             return c.id === state.cases.ui.selectedCase;

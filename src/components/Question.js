@@ -65,7 +65,7 @@ export class Question extends React.Component {
         } else if (this.props.answerType === 'categorical') {
             return <FormGroup tag="fieldset">
                 {
-                    this.props.answer.options.map((answer) => {
+                    this.props.answerOptions.map((answer) => {
                         return (
                             <FormGroup check key={answer}>
                                 <Label check>
@@ -109,16 +109,13 @@ export class Question extends React.Component {
 }
 
 function mapStateToProps(state, props) {
-  console.log(state);
-  console.log(props);
   const theQuestion = state.data.questions.find(question => question.id === props.current);
-  console.log('theQuestion');
-  console.log(theQuestion);
 
   return {
     text: theQuestion.question,
     answerType: theQuestion.answerType,
     answer: theQuestion.answer,
+    answerOptions: theQuestion.answerOptions,
     currentResponse: state.answers.responses[props.current]
   };
 }

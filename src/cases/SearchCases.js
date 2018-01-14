@@ -43,7 +43,6 @@ const renderField = ({
 )
 
 const InputField = (props) => {
-  console.log(props)
     return (
         <Input type={props.type} {...props.input} />
     )

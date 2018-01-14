@@ -67,7 +67,7 @@ const App = () => {
                 <Route path="/about" component={About} />
                 <Route path="/contact" component={Contact} />
                 <Route path="/questions/:question" component={Home}></Route>
-                <PrivateRoute path="/qualifiedprograms/:selectedCase" component={QualifiedPrograms} />
+                <Route path="/qualifiedPrograms" component={QualifiedPrograms} />
                 <Redirect to="/" />
               </Switch>
             </Col>

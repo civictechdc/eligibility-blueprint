@@ -1,4 +1,5 @@
 import Papa from 'papaparse';
+import {programs} from '../data.json';
 
 async function fetchData() {
   const url = 'https://docs.google.com/spreadsheets/d/1nI45sZOZ6Qg2JUuQIjWk6OHl353dcvV7_7p-NcYaMBg/export?format=csv';
@@ -18,16 +19,22 @@ async function fetchData() {
   questionsArray.map((question) => {
     var questionContinueRules = question.continueRules.split(",");
     question.continueRules = {
-      "true": [questionContinueRules[0]],
-      "false": [questionContinueRules[1]]
+      "true": [parseInt(questionContinueRules[0])],
+      "false": [parseInt(questionContinueRules[1])]
+    };
+    // for categoricals
+    if (question.answerOptions) {
+      question.answerOptions = question.answerOptions.split(",");
     }
   });
 
   // const programsUrl = 'https://docs.google.com/spreadsheets/d/1nI45sZOZ6Qg2JUuQIjWk6OHl353dcvV7_7p-NcYaMBg/export?format=csv&gid=1285635821';
   // const programs = Papa.parse(programsUrl, {download: true, header: true});
-  // console.log(programs);
 
-  return {questions: questionsArray};
+  return {
+    questions: questionsArray,
+    programs: programs
+  };
 };
 
 export default fetchData;
