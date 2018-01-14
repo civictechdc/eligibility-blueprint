@@ -9,6 +9,7 @@
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
     "node-polyglot": "^2.2.2",
+    "papaparse": "^4.3.6",
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
     "react-dom": "^15.6.1",

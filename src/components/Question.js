@@ -21,10 +21,6 @@ import translation from '../translation';
 
 export class Question extends React.Component {
 
-    componentWillMount() {
-      console.log('componentWillMount')
-    }
-
     constructor(props) {
         super(props);
         this.answerQuestion = this.answerQuestion.bind(this);
@@ -55,13 +51,13 @@ export class Question extends React.Component {
                     <FormGroup check>
                         <Label check>
                         <Input type="radio" checked={this.props.currentResponse === true} name={this.props.current} onClick={() => this.answerQuestion(true)} />{' '}
-                        {translation.t(this.props.answer.trueKey)}
+                        {translation.t("TRUE")}
                         </Label>
                     </FormGroup>
                     <FormGroup check>
                         <Label check>
                         <Input type="radio" checked={this.props.currentResponse === false} name={this.props.current} onClick={() => this.answerQuestion(false)} />{' '}
-                        {translation.t(this.props.answer.falseKey)}
+                        {translation.t("FALSE")}
                         </Label>
                     </FormGroup>
                 </FormGroup>
@@ -113,13 +109,17 @@ export class Question extends React.Component {
 }
 
 function mapStateToProps(state, props) {
-    const theQuestion = state.data.questions.find(question => question.id === props.current);
+  console.log(state);
+  console.log(props);
+  const theQuestion = state.data.questions.find(question => question.id === props.current);
+  console.log('theQuestion');
+  console.log(theQuestion);
 
   return {
-      text: theQuestion.question,
-      answerType: theQuestion.answerType,
-      answer: theQuestion.answer,
-      currentResponse: state.answers.responses[props.current]
+    text: theQuestion.question,
+    answerType: theQuestion.answerType,
+    answer: theQuestion.answer,
+    currentResponse: state.answers.responses[props.current]
   };
 }
 
