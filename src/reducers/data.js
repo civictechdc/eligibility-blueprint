@@ -1,10 +1,8 @@
 // import initial from '../data.json';
 import initial from './fetchData';
-import cases from '../case.json';
 
 const mockData = {
-    ...initial,
-    cases
+    ...initial
 };
 
 const data = function(state = mockData, action) {

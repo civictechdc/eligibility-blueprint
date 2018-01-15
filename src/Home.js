@@ -14,9 +14,6 @@ import {
 } from './actions/answers';
 import Question from './components/Question';
 import translation from './translation'
-import {
-    CaseCard
-} from './cases/components'
 
 export class Home extends Component {
 
@@ -48,18 +45,11 @@ export class Home extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const personAndCases = state.cases.data.find((person) => {
-        return person.cases.find((c) => {
-            return c.id === state.cases.ui.selectedCase;
-        });
-    });
-
     return {
         currentQuestion: state.answers.current,
         previousQuestions: state.answers.previous,
         futureQuestions: state.answers.future,
-        done: state.answers.done,
-        person: personAndCases
+        done: state.answers.done
     }
 }
 

@@ -94,7 +94,7 @@ export class Question extends React.Component {
                           <Button
                           onClick={
                             () => this.loadFirstQuestion()
-                          }> Reset </Button>
+                          }>Reset</Button>
                           <Button onClick={
                             () => this.loadPreviousQuestion()
                           }>
