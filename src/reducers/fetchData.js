@@ -22,11 +22,11 @@ async function fetchData() {
     dynamicTyping: true
   }).data;
 
-  questionsArray.map((question) => {
+  questionsArray.forEach((question) => {
     var questionContinueRules = question.continueRules.split(",");
     question.continueRules = {
-      "true": [parseInt(questionContinueRules[0])],
-      "false": [parseInt(questionContinueRules[1])]
+      "true": [parseInt(questionContinueRules[0], 10)], // '10' is the radix argument: "the base of a system of numeration."
+      "false": [parseInt(questionContinueRules[1], 10)]
     };
     // for categoricals
     if (question.answerOptions) {

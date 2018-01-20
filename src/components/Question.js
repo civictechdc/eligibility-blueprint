@@ -11,9 +11,6 @@ import {
     CardBlock,
     CardTitle
 } from 'reactstrap';
-import {
-    push
-} from 'react-router-redux';
 import { connect } from "react-redux";
 import * as AnswerActions from '../actions/answers'
 import translation from '../translation';
@@ -35,12 +32,12 @@ export class Question extends React.Component {
     }
 
     loadPreviousQuestion() {
-      const { dispatch, current } = this.props;
+      const { dispatch } = this.props;
       dispatch(AnswerActions.loadPreviousQuestion());
     }
 
     loadFirstQuestion() {
-        const {dispatch, current} = this.props;
+        const {dispatch} = this.props;
         dispatch(AnswerActions.loadFirstQuestion());
     }
 

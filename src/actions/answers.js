@@ -37,8 +37,6 @@ export function selectedAnswer(thisAnswer, thisQuestion) {
 export function loadFirstQuestion(athing){
   return async (dispatch, getState) => {
     const mydata = await fetchData();
-    const { data } = getState();
-
     const firstQuestion = mydata.questions.find(question => question.start === true);
 
     dispatch(
@@ -61,7 +59,7 @@ export function loadPreviousQuestion(athing) {
     const current = answers.current;
     const prevQuestion = data.questions.find(question => question.id === current-1);
 
-    if (current != 1) {
+    if (current !== 1) {
       dispatch(
         {
             type: LOAD_PREVIOUS_QUESTION,

@@ -4,12 +4,11 @@ import { Provider } from 'react-redux'
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { reducer as formReducer } from 'redux-form'
-import { Container, Row, Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import { Route, Switch, Redirect } from 'react-router';
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux'
 
 import history from './history';
-import createHistory from 'history/createBrowserHistory';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import Home from './Home';
