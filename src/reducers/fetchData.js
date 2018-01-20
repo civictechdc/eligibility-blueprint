@@ -1,5 +1,4 @@
 import Papa from 'papaparse';
-import {programs} from '../data.json';
 
 function fetchRemoveCSV(url) {
   return fetch(url).then((response) => {
@@ -12,7 +11,10 @@ function fetchRemoveCSV(url) {
 };
 
 async function fetchData() {
-  const url = 'https://docs.google.com/spreadsheets/d/1nI45sZOZ6Qg2JUuQIjWk6OHl353dcvV7_7p-NcYaMBg/export?format=csv';
+  const url = process.env.REACT_APP_QUESTIONS_CSV;
+  if (!url) throw new Error(
+    'No REACT_APP_QUESTIONS_CSV set. Please start the server after setting a REACT_APP_QUESTIONS_CSV environment variable.'
+  );
   const questions = await fetchRemoveCSV(url);
 
   var questionsArray = Papa.parse(questions, {
@@ -32,7 +34,10 @@ async function fetchData() {
     }
   });
 
-  const programReqsUrl = 'https://docs.google.com/spreadsheets/d/1nI45sZOZ6Qg2JUuQIjWk6OHl353dcvV7_7p-NcYaMBg/export?format=csv&gid=1285635821';
+  const programReqsUrl = process.env.REACT_APP_PROGRAMS_CSV;
+  if (!programReqsUrl) throw new Error(
+    'No REACT_APP_PROGRAMS_CSV set. Please start the server after setting a REACT_APP_PROGRAMS_CSV environment variable.'
+  );
   const remoteProgramReqsString = await fetchRemoveCSV(programReqsUrl);
   const programReqsArray = Papa.parse(remoteProgramReqsString, {
     header: true,
