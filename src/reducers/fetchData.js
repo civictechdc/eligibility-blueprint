@@ -24,9 +24,12 @@ async function fetchData() {
 
   questionsArray.forEach((question) => {
     var questionContinueRules = question.continueRules.split(",");
+    // '10' is the radix argument: "the base of a system of numeration."
+    const trueContinuesTo = parseInt(questionContinueRules[0], 10);
+    const falseContinuesTo = parseInt(questionContinueRules[1], 10);
     question.continueRules = {
-      "true": [parseInt(questionContinueRules[0], 10)], // '10' is the radix argument: "the base of a system of numeration."
-      "false": [parseInt(questionContinueRules[1], 10)]
+      "true": trueContinuesTo ? [trueContinuesTo] : [],
+      "false": falseContinuesTo ? [falseContinuesTo] : []
     };
     // for categoricals
     if (question.answerOptions) {
