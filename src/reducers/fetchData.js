@@ -24,16 +24,22 @@ async function fetchData() {
 
   questionsArray.forEach((question) => {
     var questionContinueRules = question.continueRules.split(",");
-    // '10' is the radix argument: "the base of a system of numeration."
-    const trueContinuesTo = parseInt(questionContinueRules[0], 10);
-    const falseContinuesTo = parseInt(questionContinueRules[1], 10);
-    question.continueRules = {
-      "true": trueContinuesTo ? [trueContinuesTo] : [],
-      "false": falseContinuesTo ? [falseContinuesTo] : []
-    };
-    // for categoricals
+    // for categorical questions
     if (question.answerOptions) {
       question.answerOptions = question.answerOptions.split(",");
+      question.continueRules = {};
+      question.answerOptions.forEach((answerOption, idx) => {
+        const answerContinuesTo = parseInt(questionContinueRules[idx], 10);
+        question.continueRules[answerOption] = answerContinuesTo ? [answerContinuesTo] : [];
+      });
+    } else {
+      // '10' is the radix argument: "the base of a system of numeration."
+      const trueContinuesTo = parseInt(questionContinueRules[0], 10);
+      const falseContinuesTo = parseInt(questionContinueRules[1], 10);
+      question.continueRules = {
+        "true": trueContinuesTo ? [trueContinuesTo] : [],
+        "false": falseContinuesTo ? [falseContinuesTo] : []
+      };
     }
   });
 
