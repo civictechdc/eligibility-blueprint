@@ -1,6 +1,8 @@
 # Eligibility Blueprint
 
-A blueprint application for bootstrapping a "decision-tree" webform which asks users to answer a set of questions. Then, based on the answers to those questions, delivers a set of results.
+Demo here: [https://eligibility-blueprint.herokuapp.com/](https://eligibility-blueprint.herokuapp.com/)
+
+Eligibility blueprint is an application for bootstrapping a "decision-tree" webform which asks users to answer a set of questions. Then, based on the answers to those questions, delivers a set of results.
 
 Eligibilty Primitives:
 
