@@ -55,18 +55,21 @@ async function fetchData() {
   const programRequirementsGathered = {};
   programReqsArray.forEach((programRequirement) => {
     const programId = programRequirement.id;
-    const thisRequiredQuestion = programRequirement.question.toString();
-    let thisRequiredAnswer = programRequirement.value;
-    const thisRequiredQuestionObject = questionsArray.find((question) => question.id.toString() === thisRequiredQuestion);
-    if (thisRequiredQuestionObject.answerType === 'categorical') {
-      thisRequiredAnswer = thisRequiredAnswer.split(',');
-    }
-    if (!programRequirementsGathered[programId]) {
-      programRequirementsGathered[programId] = Object.assign({}, programRequirement, {questions: {}});
-      delete programRequirementsGathered[programId]['question'];
-      delete programRequirementsGathered[programId]['value'];
-    }
-    programRequirementsGathered[programId]['questions'][thisRequiredQuestion] = thisRequiredAnswer;
+    const thisRequiredQuestions = programRequirement.question.toString().split(',');
+    const thisRequiredAnswers = programRequirement.value.split(',');
+    thisRequiredQuestions.forEach((thisRequiredQuestion, idx) => {
+      let thisRequiredAnswer = thisRequiredAnswers[idx];
+      const thisRequiredQuestionObject = questionsArray.find((question) => question.id.toString() === thisRequiredQuestion);
+      if (thisRequiredQuestionObject.answerType === 'categorical') {
+        thisRequiredAnswer = thisRequiredAnswer.split(',');
+      }
+      if (!programRequirementsGathered[programId]) {
+        programRequirementsGathered[programId] = Object.assign({}, programRequirement, {questions: {}});
+        delete programRequirementsGathered[programId]['question'];
+        delete programRequirementsGathered[programId]['value'];
+      }
+      programRequirementsGathered[programId]['questions'][thisRequiredQuestion] = thisRequiredAnswer;
+    });
   });
 
   return {

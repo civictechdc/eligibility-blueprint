@@ -42,7 +42,11 @@ function calculateProgramEligibity(requiredAnswers, responses, questions) {
             // Answer can be one of a list
             isGoodAnswer = requiredAnswers[requiredAnswer].includes(responses[requiredAnswer]);
         } else {
-            isGoodAnswer = !!responses[requiredAnswer] === requiredAnswers[requiredAnswer];
+            if (responses[requiredAnswer]) {
+                isGoodAnswer = responses[requiredAnswer].toString() === requiredAnswers[requiredAnswer].toString();
+            } else {
+                isGoodAnswer = false;
+            }
         }
         return isEligible && isGoodAnswer;
     }, true);
