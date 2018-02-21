@@ -11,19 +11,12 @@ import {
     CardBlock,
     CardTitle
 } from 'reactstrap';
-import {
-    push
-} from 'react-router-redux';
 import { connect } from "react-redux";
 import * as AnswerActions from '../actions/answers'
 import translation from '../translation';
 
 
 export class Question extends React.Component {
-
-    componentWillMount() {
-      console.log('componentWillMount')
-    }
 
     constructor(props) {
         super(props);
@@ -39,12 +32,12 @@ export class Question extends React.Component {
     }
 
     loadPreviousQuestion() {
-      const { dispatch, current } = this.props;
+      const { dispatch } = this.props;
       dispatch(AnswerActions.loadPreviousQuestion());
     }
 
     loadFirstQuestion() {
-        const {dispatch, current} = this.props;
+        const {dispatch} = this.props;
         dispatch(AnswerActions.loadFirstQuestion());
     }
 
@@ -55,13 +48,13 @@ export class Question extends React.Component {
                     <FormGroup check>
                         <Label check>
                         <Input type="radio" checked={this.props.currentResponse === true} name={this.props.current} onClick={() => this.answerQuestion(true)} />{' '}
-                        {translation.t(this.props.answer.trueKey)}
+                        {translation.t("TRUE")}
                         </Label>
                     </FormGroup>
                     <FormGroup check>
                         <Label check>
                         <Input type="radio" checked={this.props.currentResponse === false} name={this.props.current} onClick={() => this.answerQuestion(false)} />{' '}
-                        {translation.t(this.props.answer.falseKey)}
+                        {translation.t("FALSE")}
                         </Label>
                     </FormGroup>
                 </FormGroup>
@@ -69,7 +62,7 @@ export class Question extends React.Component {
         } else if (this.props.answerType === 'categorical') {
             return <FormGroup tag="fieldset">
                 {
-                    this.props.answer.options.map((answer) => {
+                    this.props.answerOptions.map((answer) => {
                         return (
                             <FormGroup check key={answer}>
                                 <Label check>
@@ -98,7 +91,7 @@ export class Question extends React.Component {
                           <Button
                           onClick={
                             () => this.loadFirstQuestion()
-                          }> Reset </Button>
+                          }>Reset</Button>
                           <Button onClick={
                             () => this.loadPreviousQuestion()
                           }>
@@ -113,13 +106,14 @@ export class Question extends React.Component {
 }
 
 function mapStateToProps(state, props) {
-    const theQuestion = state.data.questions.find(question => question.id === props.current);
+  const theQuestion = state.data.questions.find(question => question.id === props.current);
 
   return {
-      text: theQuestion.question,
-      answerType: theQuestion.answerType,
-      answer: theQuestion.answer,
-      currentResponse: state.answers.responses[props.current]
+    text: theQuestion.question,
+    answerType: theQuestion.answerType,
+    answer: theQuestion.answer,
+    answerOptions: theQuestion.answerOptions,
+    currentResponse: state.answers.responses[props.current]
   };
 }
 

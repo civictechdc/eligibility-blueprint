@@ -18,7 +18,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 import {setLanguage} from './translation';
 import translation from './translation';
-import imgLogo from './images/dcgov_logo.jpg';
+import imgLogo from './images/american-flag-logo-vector.png';
 
 export default class Linkbar extends Component{
   constructor(props){
@@ -42,9 +42,9 @@ export default class Linkbar extends Component{
         <Row>
           <Col md={12}>
             <Navbar light toggleable>
-              <img className="dcgov_logo" src={imgLogo} alt="DCGov Logo" />
+              <img className="logo" src={imgLogo} alt="USA Logo" />
               <LinkContainer exact to="/">
-                <NavbarBrand className="dark-blue">CFSA Referral Program</NavbarBrand>
+                <NavbarBrand className="dark-blue">Determine Eligibility</NavbarBrand>
               </LinkContainer>
               <NavbarToggler right onClick={this.toggleOpen('menu')} />
               <Collapse className="navbar-toggleable-md" isOpen={this.state.menuOpen} navbar>

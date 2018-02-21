@@ -1,17 +1,16 @@
-import initial from '../data.json';
-import cases from '../case.json';
-
+// import initial from '../data.json';
+import initial from './fetchData';
 
 const mockData = {
-    ...initial,
-    cases
+    ...initial
 };
 
-function data(state = mockData, action) {
-    switch(action.type) {
-        default:
-            return state;
-    }
+const data = function(state = mockData, action) {
+  if (action.mydata && action.loadQuestions) {
+    state.questions = action.mydata.questions;
+    state.programs = action.mydata.programs;
+  }
+  return state;
 }
 
 export default data;

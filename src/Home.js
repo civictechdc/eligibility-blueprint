@@ -14,9 +14,6 @@ import {
 } from './actions/answers';
 import Question from './components/Question';
 import translation from './translation'
-import {
-    CaseCard
-} from './cases/components'
 
 export class Home extends Component {
 
@@ -27,7 +24,7 @@ export class Home extends Component {
     render() {
         const { currentQuestion } = this.props;
         if(this.props.done) {
-            return <Redirect to={`/qualifiedPrograms/${this.props.selectedCase.id}`}/>
+            return <Redirect to={`/qualifiedPrograms`}/>
         }
 
         if(currentQuestion == null) {
@@ -36,11 +33,6 @@ export class Home extends Component {
 
         return (
             <Container>
-                <Row>
-                    <Col className="mt-2">
-                       <CaseCard {...this.props.person} {...this.props.selectedCase} ></CaseCard>
-                    </Col>
-                </Row>
                 <Row>
                     <Col>
                         <Question current={currentQuestion}/>
@@ -53,19 +45,11 @@ export class Home extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const personAndCases = state.cases.data.find((person) => {
-        return person.cases.find((c) => {
-            return c.id === state.cases.ui.selectedCase;
-        });
-    });
-
     return {
         currentQuestion: state.answers.current,
         previousQuestions: state.answers.previous,
         futureQuestions: state.answers.future,
-        done: state.answers.done,
-        selectedCase: personAndCases.cases.find((c) => c.id === state.cases.ui.selectedCase),
-        person: personAndCases
+        done: state.answers.done
     }
 }
 

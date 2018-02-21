@@ -19,11 +19,15 @@ body {
   box-shadow: 0px 0px 10px #ccc;
 }
 
-.dcgov_logo {
-  max-height: 2em;
+.logo {
+  max-height: 2.5em;
   margin-right: 0.5em;
 }
 
 .dark-blue {
   color: #2B4888 !important;
+}
+
+.card-block button {
+  margin-right: 5px;
 }

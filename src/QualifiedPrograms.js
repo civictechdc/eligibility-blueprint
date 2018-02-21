@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {
-    Container,
     Row,
     Col,
     Card,
@@ -25,14 +24,10 @@ import {
     startOverForEligibility
 } from './actions/eligibilityActions';
 import translation from './translation';
-import {
-    CaseCard
-} from './cases/components'
-
 
 export class QualifiedPrograms extends Component{
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.startOver = this.startOver.bind(this);
     }
@@ -97,11 +92,6 @@ export class QualifiedPrograms extends Component{
             return (
                 <Row>
                     <Col>
-                        <Row>
-                            <Col className="mt-2">
-                                <CaseCard {...this.props.person} {...this.props.selectedCase} ></CaseCard>
-                            </Col>
-                        </Row>
                         <Row className="mt-3">   
                             <Col md={{ size: 8, push: 1, pull: 1, offset: 1 }} sm="12" className="text-center">
                                 <Card>
@@ -126,11 +116,6 @@ export class QualifiedPrograms extends Component{
             return (
                 <Row>
                     <Col>
-                        <Row>
-                            <Col className="mt-2">
-                                <CaseCard {...this.props.person} {...this.props.selectedCase} ></CaseCard>
-                            </Col>
-                        </Row>
                         <Row className="mt-3">   
                             <Col md={{ size: 8, push: 1, pull: 1, offset: 1 }} sm="12" className="text-center">
                                 <Card>
@@ -156,11 +141,6 @@ export class QualifiedPrograms extends Component{
             <Row>
             <Col>
                 <Row>
-                        <Col className="mt-2">
-                            <CaseCard {...this.props.person} {...this.props.selectedCase} ></CaseCard>
-                        </Col>
-                    </Row>
-                <Row>
                     <Col sm={{ size: 8, push: 1, pull: 1, offset: 1 }}>
                         <h5>{translation.t('QUALIFIED_PROGRAMS_FOR_CASE')}</h5>
                         <ListGroup>
@@ -185,19 +165,11 @@ export class QualifiedPrograms extends Component{
 }
 
 function mapStateToProps(state) {
-    const personAndCases = state.cases.data.find((person) => {
-        return person.cases.find((c) => {
-            return c.id === state.cases.ui.selectedCase;
-        });
-    });
-
     return {
         answers: state.answers.responses,
         questions: state.data.questions,
         programs: state.eligiblePrograms,
-        calculated: state.answers.calculated,
-        selectedCase: personAndCases.cases.find((c) => c.id === state.cases.ui.selectedCase),
-        person: personAndCases   
+        calculated: state.answers.calculated
     }
 }
 
