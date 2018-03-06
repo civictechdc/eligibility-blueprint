@@ -71,6 +71,11 @@ There are 2 CSVs which should be referenced.
 
 Each row in the programs CSV is a set of _program eligibility requirements_, not a program definition itself. A single program could be associated with multiple sets of program eligibility requirements. For example, with housing assistance, a person is eligible for assistance if they have a household size of 2 and income below $20,575 _or_ they have a household size of 3 and income below $25,975.
 
+### CSV Examples
+
+* [DC's Child and Family Services Agency Programs (CFSA)](https://docs.google.com/spreadsheets/d/1nI45sZOZ6Qg2JUuQIjWk6OHl353dcvV7_7p-NcYaMBg/edit#gid=0)
+* [DC's Emergency Rental Assistance Program (ERAP)](https://docs.google.com/spreadsheets/d/1D_vfpMVubJYvBSRRpUz--iCf7-aFCztbxvp7fHhihFo/edit#gid=1368381262)
+
 ## Technology
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
