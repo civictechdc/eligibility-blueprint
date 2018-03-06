@@ -49,8 +49,7 @@ async function fetchData() {
   );
   const remoteProgramReqsString = await fetchRemoveCSV(programReqsUrl);
   const programReqsArray = Papa.parse(remoteProgramReqsString, {
-    header: true,
-    dynamicTyping: true
+    header: true
   }).data;
   const programRequirementsGathered = {};
   programReqsArray.forEach((programRequirement) => {
