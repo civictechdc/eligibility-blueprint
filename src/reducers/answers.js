@@ -31,14 +31,15 @@ function answers(state = initialState, action) {
             const {answer, question, nextQuestions} = action;
             const allFutureQuestions = [...state.future, ...nextQuestions];
             const done = allFutureQuestions.length === 0;
+            let allPreviousQuestions = [...state.previous];
+            if (allPreviousQuestions[allPreviousQuestions.length-1] !== question) {
+                allPreviousQuestions.push(question);
+            }
             return {
                 ...state,
                 done,
                 current: allFutureQuestions[0] || null,
-                previous: [
-                    ...state.previous,
-                    question
-                ],
+                previous: allPreviousQuestions,
                 future: allFutureQuestions.slice(1),
                 responses: {
                     ...state.responses,
