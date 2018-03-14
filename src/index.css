@@ -10,13 +10,15 @@ html, body, #root, [data-reactroot] {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif !important;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif !important;
   color: #444 !important;
+  background-color: #f8f8f8 !important;
 }
 
 .navbar-container {
   border-top: 11px solid #2B4888;
   box-shadow: 0px 0px 10px #ccc;
+  background-color: #fff;
 }
 
 .logo {
@@ -28,6 +30,17 @@ body {
   color: #2B4888 !important;
 }
 
-.card-block button {
-  margin-right: 5px;
+button {
+  width: 100px;
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 2rem !important;
+}
+
+.card {
+  margin-bottom: 50px;
+  box-shadow: 0px 0px 8px #ccc;
+  border-radius: 0px !important;
 }

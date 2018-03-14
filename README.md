@@ -1,6 +1,6 @@
 # Eligibility Blueprint
 
-Demo here: [https://eligibility-blueprint.herokuapp.com/](https://eligibility-blueprint.herokuapp.com/)
+Demo here: [https://kind-spence-14935a.netlify.com](https://kind-spence-14935a.netlify.com/)
 
 Eligibility blueprint is an application for bootstrapping a "decision-tree" webform which asks users to answer a set of questions. Then, based on the answers to those questions, delivers a set of results.
 

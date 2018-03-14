@@ -4,6 +4,7 @@ import {
     Col,
     Card,
     CardBlock,
+    CardFooter,
     CardTitle,
     CardText,
     ListGroup,
@@ -81,6 +82,9 @@ export class QualifiedPrograms extends Component{
                                 }
                             </CardText>
                         </CardBlock>
+                        <CardFooter>
+                          <Button outline color="primary" onClick={this.startOver} className="float-right">{translation.t('START_OVER')}</Button>
+                        </CardFooter>
                     </Card>
                 </Col>
             </Row>
@@ -102,11 +106,6 @@ export class QualifiedPrograms extends Component{
                             </Col>
                         </Row>
                         {this.renderAnswers()}
-                        <Row className="mt-3">
-                            <Col sm={{ size: 3, offset: 4 }}>
-                                <Button outline color="primary">{translation.t('START_OVER')}</Button>
-                            </Col>
-                        </Row>
                     </Col>
                 </Row>
             );
@@ -127,16 +126,12 @@ export class QualifiedPrograms extends Component{
                             </Col>
                         </Row>
                         {this.renderAnswers()}
-                        <Row className="mt-3">
-                            <Col sm={{ size: 3, offset: 4 }}>
-                                <Button onClick={this.startOver} outline color="primary">{translation.t('START_OVER')}</Button>
-                            </Col>
-                        </Row>
                     </Col>
                 </Row>
             )
         }
 
+        const uniquePrograms = [...new Set(this.props.programs)];
         return (
             <Row>
             <Col>
@@ -145,7 +140,7 @@ export class QualifiedPrograms extends Component{
                         <h5>{translation.t('QUALIFIED_PROGRAMS_FOR_CASE')}</h5>
                         <ListGroup>
                         {
-                            this.props.programs.map((program) => {
+                            uniquePrograms.map((program) => {
                                 return (<ListGroupItem key={program.id}>{translation.t(program.program)}</ListGroupItem>);
                             })
                         }
@@ -153,11 +148,6 @@ export class QualifiedPrograms extends Component{
                     </Col>
                 </Row>
                 {this.renderAnswers()}
-                <Row className="mt-3">
-                    <Col sm={{ size: 3, offset: 4 }}>
-                        <Button onClick={this.startOver} outline color="primary">{translation.t('START_OVER')}</Button>
-                    </Col>
-                </Row>
                 </Col>
                 </Row>
         )

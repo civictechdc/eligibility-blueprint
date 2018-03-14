@@ -9,6 +9,7 @@ import {
     Input,
     Card,
     CardBlock,
+    CardFooter,
     CardTitle
 } from 'reactstrap';
 import { connect } from "react-redux";
@@ -45,18 +46,8 @@ export class Question extends React.Component {
         if (this.props.answerType === 'boolean') {
             return (
                 <FormGroup tag="fieldset">
-                    <FormGroup check>
-                        <Label check>
-                        <Input type="radio" checked={this.props.currentResponse === true} name={this.props.current} onClick={() => this.answerQuestion(true)} />{' '}
-                        {translation.t("TRUE")}
-                        </Label>
-                    </FormGroup>
-                    <FormGroup check>
-                        <Label check>
-                        <Input type="radio" checked={this.props.currentResponse === false} name={this.props.current} onClick={() => this.answerQuestion(false)} />{' '}
-                        {translation.t("FALSE")}
-                        </Label>
-                    </FormGroup>
+                    <Button outline color='primary' name={this.props.current} onClick={() => this.answerQuestion(true)}>{translation.t("TRUE")}</Button>{' '}
+                    <Button outline color='primary' name={this.props.current} onClick={() => this.answerQuestion(false)}>{translation.t("FALSE")}</Button>{' '}
                 </FormGroup>
             )
         } else if (this.props.answerType === 'categorical') {
@@ -80,24 +71,17 @@ export class Question extends React.Component {
         return (
             <Row className="mt-2">
                 <Col md={{ size: 8, push: 1, pull: 1, offset: 1 }} sm="12">
-                    <Card className="text-center">
+                    <Card>
                         <CardBlock>
                             <CardTitle>{translation.t(this.props.text)}</CardTitle>
                         </CardBlock>
-                        <Form className="mr-3">
+                        <Form className="mr-3" className="text-center">
                             {this.questionForm()}
                         </Form>
-                        <CardBlock>
-                          <Button
-                          onClick={
-                            () => this.loadFirstQuestion()
-                          }>Reset</Button>
-                          <Button onClick={
-                            () => this.loadPreviousQuestion()
-                          }>
-                          Back
-                          </Button>
-                        </CardBlock>
+                        <CardFooter>
+                            <Button className="float-right" size="sm" color='danger' onClick={() => this.loadFirstQuestion()}>Start Over</Button>{' '}
+                            <Button className="float-left" size="sm" color='warning' onClick={() => this.loadPreviousQuestion()}>Go back</Button>{' '}
+                        </CardFooter>
                     </Card>
                 </Col>
             </Row>

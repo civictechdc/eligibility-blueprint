@@ -57,7 +57,8 @@ export function loadPreviousQuestion(athing) {
   return (dispatch, getState) => {
     const {answers, data} = getState();
     const current = answers.current;
-    const prevQuestion = data.questions.find(question => question.id === current-1);
+    const previousQuestionId = answers.previous.pop();
+    const prevQuestion = data.questions.find(question => question.id === previousQuestionId);
 
     if (current !== 1) {
       dispatch(
